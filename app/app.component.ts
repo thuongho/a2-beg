@@ -9,10 +9,17 @@ import {FavoriteComponent} from './favorite.component';
       <h1>Courses Machine</h1>
       <courses></courses>
       <authors></authors>
-      <favorite></favorite>
+      <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
       `,
     directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]
 })
 export class AppComponent { 
+  post ={
+    title: "Title",
+    isFavorite: true;
+  }
 
+  onFavoriteChange($event) {
+    console.log($event);
+  }
 }

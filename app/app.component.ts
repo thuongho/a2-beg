@@ -24,11 +24,17 @@ import {FavoriteComponent} from './favorite.component';
         <template [ngSwitchWhen]="'map'">Map View Content</template>
         <template [ngSwitchWhen]="'list'">List View Content</template>
       </div>
+      <br />
+      <ul>
+        <li *ngFor="#course of courses, #i = index">
+          {{ i + 1 }} - {{ course }}
+        </li>
+      </ul>
       `,
     directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]
 })
 export class AppComponent { 
-  post ={
+  post = {
     title: "Title",
     isFavorite: true
   }
@@ -37,7 +43,7 @@ export class AppComponent {
     console.log($event);
   }
 
-  courses = [];
+  courses = ['course1', 'course2'];
 
   viewMode = 'map';
 }

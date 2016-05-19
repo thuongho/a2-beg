@@ -29,6 +29,9 @@ import {FavoriteComponent} from './favorite.component';
         <li *ngFor="#course of courses, #i = index">
           {{ i + 1 }} - {{ course }}
         </li>
+        <template ngFor [ngForOf]="courses" #course #i=index>
+          <li>{{ i + 1 }} - {{ course }}</li>
+        </template>
       </ul>
       `,
     directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]

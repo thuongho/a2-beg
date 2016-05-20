@@ -34,12 +34,13 @@ System.register(['angular2/core', './course.service', './auto-grow.directive'], 
                         price: 99.95,
                         releaseDate: new Date(2016, 3, 1)
                     };
+                    this.viewMode = 'map';
                     this.courses = courseService.getCourses();
                 }
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'courses',
-                        template: "\n      <h2>Courses</h2>\n      {{ title }}\n      <input type=\"text\" autoGrow />\n      <ul>\n        <li *ngFor=\"#course of courses\">\n          {{ course }}\n        </li>\n      </ul>\n      {{ course.title | uppercase | lowercase }}\n      <br />\n      {{ course.students | number }}\n      <br />\n      {{ course.rating | number: '2.2-2' }}\n      <br />\n      {{ course.price | currency:'AUD':true:'2.2-2' }}\n      <br />\n      {{ course.releaseDate | date:'MMM yyyy' }}\n      <br />\n      {{ course | json }}\n      ",
+                        template: "\n      <h2>Courses</h2>\n      {{ title }}\n      <input type=\"text\" autoGrow />\n      <ul>\n        <li *ngFor=\"#course of courses\">\n          {{ course }}\n        </li>\n      </ul>\n      {{ course.title | uppercase | lowercase }}\n      <br />\n      {{ course.students | number }}\n      <br />\n      {{ course.rating | number: '2.2-2' }}\n      <br />\n      {{ course.price | currency:'AUD':true:'2.2-2' }}\n      <br />\n      {{ course.releaseDate | date:'MMM yyyy' }}\n      <br />\n      {{ course | json }}\n      <br />\n      <ul class=\"nav nav-pills\">\n      <li [class.active]=\"viewMode == 'map'\"><a (click)= \"viewMode = 'map'\">Map View</a></li>\n      <li [class.active]=\"viewMode == 'list'\"><a (click)= \"viewMode = 'list'\">List View</a></li>\n      </ul>\n      <div [ngSwitch]=\"viewMode\">\n        <template [ngSwitchWhen]=\"'map'\">Map View Content</template>\n        <template [ngSwitchWhen]=\"'list'\">List View Content</template>\n      </div>\n      <br />\n      <ul>\n        <li *ngFor=\"#course of courses, #i = index\">\n          {{ i + 1 }} - {{ course }}\n        </li>\n        <template ngFor [ngForOf]=\"courses\" #course #i=index>\n          <li>{{ i + 1 }} - {{ course }}</li>\n        </template>\n      </ul>\n      ",
                         providers: [course_service_1.CourseService],
                         directives: [auto_grow_directive_1.AutoGrowDirective]
                     }), 

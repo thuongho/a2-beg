@@ -3,6 +3,7 @@ import {CoursesComponent} from './courses.component';
 import {AuthorsComponent} from './authors.component';
 import {FavoriteComponent} from './favorite.component';
 import {BootstrapPanel} from './bootstrap.panel.component';
+import {ZippyComponent} from './zippy.component';
 
 @Component({
     selector: 'my-app',
@@ -21,25 +22,14 @@ import {BootstrapPanel} from './bootstrap.panel.component';
         <div class="body">This is the body!</div>
       </bs-panel>
       <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
-      <ul class="nav nav-pills">
-      <li [class.active]="viewMode == 'map'"><a (click)= "viewMode = 'map'">Map View</a></li>
-      <li [class.active]="viewMode == 'list'"><a (click)= "viewMode = 'list'">List View</a></li>
-      </ul>
-      <div [ngSwitch]="viewMode">
-        <template [ngSwitchWhen]="'map'">Map View Content</template>
-        <template [ngSwitchWhen]="'list'">List View Content</template>
-      </div>
-      <br />
-      <ul>
-        <li *ngFor="#course of courses, #i = index">
-          {{ i + 1 }} - {{ course }}
-        </li>
-        <template ngFor [ngForOf]="courses" #course #i=index>
-          <li>{{ i + 1 }} - {{ course }}</li>
-        </template>
-      </ul>
+      <zippy title="Who can see my stuff?">
+        Content of who can see my stuff
+      </zippy>
+      <zippy title="Who can contact me?">
+        Content of who can contact me
+      </zippy>
       `,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, BootstrapPanel]
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, BootstrapPanel, ZippyComponent]
 })
 export class AppComponent { 
   post = {
@@ -53,5 +43,5 @@ export class AppComponent {
 
   courses = ['course1', 'course2'];
 
-  viewMode = 'map';
+  
 }

@@ -31,12 +31,16 @@ System.register(['angular2/core', './author.service', './summary.pipe'], functio
                         title: "Angular Tut for Beginners",
                         body: "\n      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum delectus illo eius minima blanditiis repudiandae qui, veritatis? At ad ipsa, fugiat, dicta earum ullam quo autem officia natus ipsum et! Voluptatibus facilis, unde asperiores. Architecto alias repudiandae sunt, delectus in consequuntur? Assumenda aperiam, quod! Delectus error similique culpa quidem repudiandae, dolorum nemo molestiae fuga alias quae incidunt quia maiores at.\n    "
                     };
+                    this.task = {
+                        title: "Review applications",
+                        assignee: null
+                    };
                     this.authors = authorService.getAuthors();
                 }
                 AuthorsComponent = __decorate([
                     core_1.Component({
                         selector: 'authors',
-                        template: "\n    <h2>Authors</h2>\n    {{ title }}\n    <ul>\n      <li *ngFor=\"#author of authors\">\n        {{ author }}\n      </li>\n    </ul>\n    {{ post.title }}\n    <br />\n    {{ post.body | summary:10 }}\n    ",
+                        template: "\n    <h2>Authors</h2>\n    {{ title }}\n    <ul>\n      <li *ngFor=\"#author of authors\">\n        {{ author }}\n      </li>\n    </ul>\n    {{ post.title }}\n    <br />\n    {{ post.body | summary:10 }}\n    <br />\n    <ul>\n      <li>Title: {{ task.title }}</li>\n      <li>Assigned to: {{ task.assignee?.name }}</li>\n    </ul>\n    ",
                         providers: [author_service_1.AuthorService],
                         pipes: [summary_pipe_1.SummaryPipe]
                     }), 

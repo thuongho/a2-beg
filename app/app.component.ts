@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {CoursesComponent} from './courses.component';
 import {AuthorsComponent} from './authors.component';
 import {FavoriteComponent} from './favorite.component';
+import {BootstrapPanel} from './bootstrap.panel.component';
 
 @Component({
     selector: 'my-app',
@@ -15,6 +16,10 @@ import {FavoriteComponent} from './favorite.component';
       </div>
       <courses></courses>
       <authors></authors>
+      <bs-panel>
+        <div class="heading">The Heading</div>
+        <div class="body">This is the body!</div>
+      </bs-panel>
       <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
       <ul class="nav nav-pills">
       <li [class.active]="viewMode == 'map'"><a (click)= "viewMode = 'map'">Map View</a></li>
@@ -34,7 +39,7 @@ import {FavoriteComponent} from './favorite.component';
         </template>
       </ul>
       `,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, BootstrapPanel]
 })
 export class AppComponent { 
   post = {

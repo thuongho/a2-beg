@@ -5,6 +5,7 @@ import {FavoriteComponent} from './favorite.component';
 import {BootstrapPanel} from './bootstrap.panel.component';
 import {ZippyComponent} from './zippy.component';
 import {ContactFormComponent} from './contact-form.component';
+import {SignUpFormComponent} from './signup-form.component';
 
 @Component({
     selector: 'my-app',
@@ -31,8 +32,10 @@ import {ContactFormComponent} from './contact-form.component';
       </zippy>
       <br />
       <contact-form></contact-form>
+      <br />
+      <signup-form></signup-form>
       `,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, BootstrapPanel, ZippyComponent, ContactFormComponent]
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, BootstrapPanel, ZippyComponent, ContactFormComponent, SignUpFormComponent]
 })
 export class AppComponent { 
   post = {

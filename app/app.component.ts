@@ -7,6 +7,7 @@ import {ZippyComponent} from './zippy.component';
 import {ContactFormComponent} from './contact-form.component';
 import {SignUpFormComponent} from './signup-form.component';
 import {PostService} from './post.service';
+import {AdventureFormComponent} from './adventure-form.component';
 // constant provider for the http class and all the depedents for the other classes
 import {HTTP_PROVIDERS} from 'angular2/http';
 
@@ -43,8 +44,9 @@ import {OnInit} from 'angular2/core'
       <contact-form></contact-form>
       <br />
       <signup-form></signup-form>
+      <adventure-form></adventure-form>
       `,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, BootstrapPanel, ZippyComponent, ContactFormComponent, SignUpFormComponent],
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, BootstrapPanel, ZippyComponent, ContactFormComponent, SignUpFormComponent, AdventureFormComponent],
     providers: [PostService, HTTP_PROVIDERS]
 })
 
